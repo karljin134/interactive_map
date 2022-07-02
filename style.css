@@ -1,0 +1,90 @@
+div#map {
+    height: 100vh;
+}
+
+/*img {
+    width:20vw;
+    height:10vh;
+}*/
+
+#map-container {
+    position: relative;
+}
+
+#search-container {
+    position: absolute;
+    z-index: 314159;
+    top: 10px;
+    left: 45px;
+    padding: 25px;
+   
+}
+
+#page-controller{
+    position: relative;
+}
+
+.page {
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 1s;
+}
+
+#page-container{
+    position: relative;
+
+}
+
+#page-1 {
+    background-color:aliceblue;
+}
+
+
+.hidden {
+    transform: translateX(-100%);
+}
+
+.show{
+    transform: translateX(0);
+}
+
+#search-dropdown {
+    background-color: azure;
+}
+
+
+.navbar-brand{
+    font-weight: 800;
+    font-size: 30px;
+    background-color: #007bff;
+    padding: 15px;
+    border-radius: 20px ;
+    color: white;
+}
+
+.nav-link{
+    font-size: 20px ;
+}
+
+.nav-link:hover {
+    color: red;
+    transition: 0.3s;
+}
+
+.nav-item{
+    padding-left: 30px;
+    font-weight: 500;
+}
+
+#hero{
+    background-image: url(images/hospi-lobby.jpeg);
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: center;
+    background-size: cover;
+}
