@@ -14,9 +14,9 @@ div#map {
 #search-container {
     position: absolute;
     z-index: 314159;
-    top: 10px;
+    /* top: 10px; */
     left: 45px;
-    padding: 25px;
+    padding: 10px;
    
 }
 
@@ -41,12 +41,22 @@ div#map {
     background-color:aliceblue;
 }
 
+#nav-logo{
+    padding-right: 10px;
+    width: 60px;
+}   
+
 
 .hidden {
     transform: translateX(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s linear, opacity 1s linear;
 }
 
 .show{
+    visibility: visible;
+    opacity: 1;
     transform: translateX(0);
 }
 

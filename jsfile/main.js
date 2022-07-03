@@ -3,8 +3,8 @@ $(function () {
     initMap();
 
     // - load map markers
-    getPlacesData('geojson/breast-center.geojson', function(res){
-        displayMarkers(res);
+    getPlacesData('geojson/breast-center.geojson').then(function(data){
+        displayMarkers(data)
     });
 
     document.querySelector('#btnmap').addEventListener('click', function () {
@@ -32,15 +32,35 @@ $(function () {
     })
 
     document.querySelector('#btnQuitCenter').addEventListener('click', function () {
-        getPlacesData('geojson/quit-center.geojson', function(res){
-            displayMarkers(res);
+        getPlacesData('geojson/quit-center.geojson').then(function(data){
+            displayMarkers(data)
         });
     })
 
     document.querySelector('#btnPharmaStore').addEventListener('click', function () {
-        getPlacesData('geojson/pharma-store.geojson', function(res){
-            displayMarkers(res);
+        getPlacesData('geojson/pharma-store.geojson').then(function(data){
+            displayMarkers(data)
         });
+    })
+
+    document.querySelector('#btnBreastCenter').addEventListener('click', function () {
+        getPlacesData('geojson/breast-center.geojson').then(function(data){
+            displayMarkers(data)
+        });
+    })
+
+    document.querySelector('#btnCervicalCenter').addEventListener('click', function () {
+        getPlacesData('geojson/cervical-center.geojson').then(function(data){
+            displayMarkers(data)
+        });
+    })
+
+    document.getElementById("searchForm").addEventListener("submit", function(e) {
+        let query = document.getElementById('inputQuery').value;
+        findPlaces(query).then(function(data) { 
+            displayMarkers(data)
+          }
+        );
     })
 
 })

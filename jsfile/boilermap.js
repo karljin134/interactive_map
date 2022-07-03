@@ -23,12 +23,6 @@ function initMap() {
     return map;
 }
 
-function getPlacesData(apiUrl, callback){
-    axios.get(apiUrl).then(function(response){
-        callback(response.data) 
-    })
-}
-
 function displayMarkers(geodata) {
     // - if has existing layer 
     if (typeof markerLayer.clearLayers != 'undefined') {
@@ -40,11 +34,7 @@ function displayMarkers(geodata) {
     markerLayer = L.markerClusterGroup();
     
     // - loop through markers data list
-    for (let n of geodata.features) {
-
-        // - get marker description
-        let desc = n.properties.Description
-        pName = $(desc).children().children().children().children().eq(2).text()
+    for (let place of geodata) {
 
         // - custom marker variable
         let customMarker = new L.icon({
@@ -59,16 +49,15 @@ function displayMarkers(geodata) {
 
         // - init marker 
         let marker = L.marker([
-            n.geometry.coordinates[1], 
-            n.geometry.coordinates[0],
+            place.latitude, 
+            place.longitude,
             { icon: customMarker }
         ])
-        .bindPopup('<i class="fas fa-seedling pr-2"></i> ' + pName);
+        .bindPopup('<i class="fas fa-seedling pr-2"></i> ' + place.name);
         markerLayer.addLayer(marker); 
 
         // $(marker).click(function(){
         //     map.flyTo([n.geometry.coordinates[1], n.geometry.coordinates[0]],16)
-
         // })
     }
     
@@ -76,3 +65,9 @@ function displayMarkers(geodata) {
     markerLayer.addTo(map)
     // map.setView(centerPoint,12)
 }
+
+
+function displayMarkerFromFoursquare(argument) {
+    // body...
+}
+
